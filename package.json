@@ -1,0 +1,14 @@
+{
+  "name": "poke-chat",
+  "version": "0.0.1",
+  "description": "Our chat for pokemon trainers",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "dotenv": "^5.0.0",
+    "express": "^4.15.2",
+    "jquery": "^3.3.1",
+    "log": "^1.4.0",
+    "nodemon": "^1.15.1",
+    "socket.io": "^2.0.4"
+  }
+}

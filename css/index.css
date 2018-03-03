@@ -1,0 +1,92 @@
+body{
+  /* background-color: #34495e !important; */
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.send-button{
+  color: #FFF !important;
+  font-size: 22px !important;
+  background-color: #3F51B5 !important;
+}
+
+.section-marker{
+  height: 40px;
+  display: table;
+  background-color: #3F51B5;
+  border-bottom: 1px solid #1976D2;
+  color: #FFF;
+}
+
+.section-marker-text{
+  display: table-cell;
+  vertical-align: middle;
+	font-size: 16px;
+  font-weight: bold;
+}
+
+.app_frame{
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.y-scrollable{
+  position: relative;
+  height:100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.message-ballon{
+  position:relative;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 70%;
+  clear:both;
+  text-align: justify;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.message-ballon-user{
+  color: #FFF;
+  background-color: #3F51B5;
+  float:right;
+}
+
+.message-ballon-others{
+  color: #000;
+  background-color: #E0E0E0;
+  float:left;
+}
+
+.chat-logo{
+  height:60px;
+  font-size: 60px;
+  text-align: center;
+  color:#3F51B5;
+  margin-bottom: 30px;
+}
+
+.chat-logo-text{
+  font-size: 30px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container">
+        <div class="col-md-12 chat-logo">
+          <i class="fas fa-comments"></i>
+          <span class="chat-logo-text noselect">
+              WestChat
+          </span>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="app_frame" style="height:500px";>
+                <div class="col-md-12 section-marker">
+                  <div class="section-marker-text noselect">
+                    Users Actions
+                  </div>
+                </div>
+                <div style="height:458px;">
+                  <div class="available_users y-scrollable">
+                    <ul class="list-group">
+                      <!-- THE ACTIVE USER LIST -->
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-9 justify-content-center">
+            <div class="chat_frame app_frame" style="height:500px;">
+              <div class="col-md-12 section-marker">
+                <div class="section-marker-text">
+                  <div  class="row">
+                    <div class="col-md-4 noselect">
+                      r-lourenco
+                    </div>
+                    <div class="col-md-8 text-right noselect">
+                      All
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- CHAT-SCREEN -->
+              <div class="col-md-12">
+                <div class="col-md-12 app_frame y-scrolable" style="margin-top: 6px; height: 400px;">
+                  <div class='message-box'>
+                    <!-- BEGGINING OF MESSAGE BOX -->
+                    <!-- END OF MESSAGE BOX -->
+                  </div>
+                </div>
+                <form name="send-message">
+                  <div class="input-group mb-3" style="margin-top: 8px;">
+                    <input type="text" id="message_field" autocomplete="off" class="form-control" placeholder="Write here your message. Use enter to send." aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group-append">
+                      <button type="submit" class="input-group-text send-button" id="basic-addon">
+                        <i class="fab fa-telegram-plane"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+      <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="js/client-websocket.js"></script>
+      <script src="js/index.js"></script>
+  </body>
+</hmtl>
