@@ -3,6 +3,5 @@ node_modules/
 # ignore env
 .env
 #ignore logs
-websocket/logs/complete_log/*.txt
-websocket/logs/messages_log/*.txt
-s
+websocket/logs/complete_log/*.log
+websocket/logs/messages_log/*.log

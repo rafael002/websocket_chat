@@ -1,7 +1,7 @@
 $(function(){
   var
       socket = io.connect('http://localhost:3000'),
-      user = 'rafael',
+      user = null,
       channel = 'lobby-messages',
       $message_box = $('.message_box'),
       $message_field = $('#message_field'),
@@ -10,24 +10,35 @@ $(function(){
       typying_notification_lock = false,
       // this calcs the size of div and scroll to newer message
       scrollMessages = function(){
-
+        var h =$('.message-box').prop('scrollHeight');
+        $('.message-box').animate({
+         scrollTop: h
+        }, 1000);
       },
       // Use this to append a message
-      appendMessage = function(message, is_from_user ){
+      appendMessage = function(message, user, is_from_user ){
         var message_type = is_from_user ? 'user' : 'others' ,
-          html = '<div class="message-ballon message-ballon-';
-          html += message_type;
-          html +='">';
-          html += message;
+          html = '<div class="row">';
+            html += '<div class="col-md-12">';
+              html += '<span class="name-';
+              html += message_type;
+              html +=' name-text">';
+                html += user + ' says:';
+              html += '</span>';
+            html += '</div>';
+            html += '<div class="col-md-12">';
+              html += '<div class="message-ballon message-ballon-';
+              html += message_type;
+              html +='">';
+                html += message;
+              html += '</div>';
+            html += '</div>';
           html += '</div>';
-
           $('.message-box').append(html);
           scrollMessages();
       },
       appendFriendAction = function(data, action_html){
         let element = data.action+'_'+data.user;
-
-        console.log(data.action);
           if( data.action != 'stop-typing' ){
             html = '<li class="list-group-item '+element+'">';
             html += '<div class="row">';
@@ -60,6 +71,14 @@ $(function(){
 
   $('#message_field').focus();
 
+  //name selection
+  do{
+    user = prompt('Digite um nome de usuario');
+  }while(user == null || user == "");
+
+  // setting name in frame
+  $('#username_frm').text(user);
+
   // Subscribe channel
   socket.emit('subscribe', {channel:'lobby-system', user: user, action: 'joined'});
   socket.emit('subscribe', {channel:'lobby-messages', user: user});
@@ -83,7 +102,7 @@ $(function(){
       socket.emit('message', {message: msg, user: user, channel: channel});
       socket.emit('action', {user: user, action: 'stop-typing'});
       typying_notification_lock = false;
-      appendMessage( msg, true);
+      appendMessage( msg, user, true);
       $message_field.val(null);
       return false;
     }
@@ -92,7 +111,7 @@ $(function(){
 
   // Retrieve messages
   socket.on('lobby-messages', function(data){
-    appendMessage( data.message, false);
+    appendMessage( data.message, data.user, false);
   });
 
   // Retrieve messages
