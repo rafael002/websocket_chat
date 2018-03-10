@@ -10,10 +10,7 @@ $(function(){
       typying_notification_lock = false,
       // this calcs the size of div and scroll to newer message
       scrollMessages = function(){
-        var h =$('.message-box').prop('scrollHeight');
-        $('.message-box').animate({
-         scrollTop: h
-        }, 1000);
+        $(".y-scrollable").animate({ scrollTop: $(".message-box").outerHeight() }, 1000);
       },
       // Use this to append a message
       appendMessage = function(message, user, is_from_user ){
@@ -72,9 +69,11 @@ $(function(){
   $('#message_field').focus();
 
   //name selection
+  var exit = 0;
   do{
     user = prompt('Digite um nome de usuario');
-  }while(user == null || user == "");
+    exit++;
+  }while((user == null || user == "") && exit < 10);
 
   // setting name in frame
   $('#username_frm').text(user);
